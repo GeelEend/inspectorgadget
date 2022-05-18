@@ -1,4 +1,4 @@
-<div class="background-login">
+<div class="background-login ">
 <x-guest-layout>
 
         <x-auth-card>
