@@ -15,10 +15,10 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('teacher_id');
-            $table->string('x');
-            $table->string('y');
-            $table->string('edited_by');
+            $table->integer('teacher_id');
+            $table->integer('x');
+            $table->integer('y');
+            $table->integer('student_id');
             $table->timestamps();
         });
     }
