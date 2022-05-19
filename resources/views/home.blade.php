@@ -37,10 +37,11 @@
                     </div>
 
                 </div>
-                
+
 
             </div>
 
+            {{--  Logout  --}}
             <form class="flex justify-center mt-5" method="POST" action="{{ route('logout') }}">
                 @csrf
 
@@ -59,28 +60,29 @@
 
         {{--  Kaart  --}}
         <div class="flex flex-col h-full w-full">
-        <div class="h-full w-full flex justify-center items-center bg-gray-200">
+            <div class="h-full w-full flex justify-center items-center bg-gray-200">
 
 
-            <div class="h-[80%] w-[90%] bg-stone-100">
+                <div class="h-[80%] w-[90%] bg-stone-100">
+
+                </div>
+
 
             </div>
 
+            {{--  footer  --}}
+            <footer class="w-100 h-50 p-2 bg-white bg-gray-600">
 
-        </div>
+                <span class="text-sm text-gray-500 sm:text-center text-gray-400">© 2022 All Rights Reserved.</span>
 
-        <footer class="w-100 h-50 p-2 bg-white bg-gray-600">
-
-            <span class="text-sm text-gray-500 sm:text-center text-gray-400">© 2022 All Rights Reserved.</span>
-
-        </footer>
+            </footer>
 
         </div>
 
     </div>
 
 
-    {{--  footer  --}}
+
 
 
 
