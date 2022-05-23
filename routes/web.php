@@ -24,7 +24,7 @@ Route::post('/admin/teachers/edit/{teacher}', ['App\Http\controllers\AdminTeache
 Route::get('/admin/teachers', ['App\Http\Controllers\AdminTeachersController', 'index'])->middleware(['auth'])->name('admin.teachers.list');
 Route::delete('/admin/teachers/destroy/{teacher}', ['App\Http\Controllers\AdminTeachersController', 'destroy'])->middleware('auth')->name('admin.teachers.destroy');
 
-
+Route::get('/admin/users', ['App\Http\Controllers\AdminUsersController', 'index'])->middleware(['auth'])->name('admin.users.list');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

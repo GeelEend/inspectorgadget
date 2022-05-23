@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('admin.teachers.list')" :active="request()->routeIs('teachers')">
                         docenten
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.users.list')" :active="request()->routeIs('users')">
+                        studenten
+                    </x-nav-link>
                 </div>
             </div>
 
