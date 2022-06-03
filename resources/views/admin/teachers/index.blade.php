@@ -24,7 +24,7 @@
                                 <td>{{ $teacher->id }}</td>
                                 <td>{{ $teacher->fullname }}</td>
                                 <td>{{ $teacher->picture }}</td>
-                                {{--                                <td class="max-h-[30px] overflow-hidden">{{ $project->description }}</td>--}}
+
                                 <td>{{ $teacher->border }}</td>
                                 <td>
                                     <a href="{{route ('admin.teachers.edit', ['teacher' => $teacher])}}">Bewerken</a>

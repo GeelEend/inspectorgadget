@@ -13,7 +13,7 @@
 </head>
 
 
-<body class="h-[100vh]">
+<body class="h-[100vh] w-[100vh] md:w-full">
 
 
 
@@ -34,19 +34,27 @@
 
                     <div class="flex flex-col">
 
-                            {{--  Docenten  --}}
-                            <div class="flex items-center mx-2 mt-5 py-3 px-3 block mx-auto rounded-lg bg-slate-800">
+                {{--  Docenten  --}}
+                @foreach ($teachers AS $teacher)
+                    <div class="click-teacher cursor-pointer flex items-center mx-2 mt-5 py-3 px-3 block mx-auto rounded-md bg-slate-800 leading-3" data-id="{{ $teacher->id }}">
 
-                                <div class="min-w-[60px] h-[60px] rounded-full bg-gray-100">
-                                </div>
+                        <img src="{{ '/storage/' . $teacher->picture   }}" class="w-[60px] h-[60px] rounded-full bg-gray-100"/>
 
-                                <div class="h-full pl-2 text-white">
-                                    <h1 class="text-lg">Docent</h1>
-                                    <h1 class="text-sm pr-1">laatst gezien 12:16</h1>
-                                </div>
+                        <div class="h-full pl-2 text-white ">
+                                <h1 class="text-lg">{{ $teacher->fullname   }}</h1>
+                                <h1 class="text-sm pr-1">Laatst gezien: <br>{{ $teacher->lastlocation->created_at   }}</h1>
+                        </div>
+                    </div>
+                @endforeach
 
+                   
                             </div>
 
+
+
+            {{--  Logout  --}}
+            <form class="flex justify-center mt-5" method="POST" action="{{ route('logout') }}">
+                @csrf
 
 
                 {{--  Logout  --}}
@@ -72,16 +80,18 @@
 
 
         {{--  Kaart  --}}
+
         <div class="flex flex-col h-full w-full">
             <div class="h-full w-full flex justify-center items-center bg-gray-200">
+                @csrf
+                    <div id="mapid" class="center-block  w-[80%] h-[70%] bg-white">
 
-
-                <div class="h-[80%] w-[90%] bg-stone-100">
-
-                </div>
-
+                    </div>
 
             </div>
+
+            {{-- Kaart --}}
+
 
 
             {{--  footer  --}}
@@ -94,8 +104,12 @@
         </div>
     </div>
 
+    <script>
+        var token = "{{ csrf_token() }}";
+    </script>
 
     <script src="{{ asset('js/app.js') }}"></script>
+
 
         {{--Javascript Sidenav--}}
         <script>

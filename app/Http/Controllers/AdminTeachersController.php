@@ -26,13 +26,12 @@ class AdminTeachersController extends Controller
         $teacher->border = $request->input('border');
 
         if ($request->hasFile('picture')) {
-            // als er al een foto is, die verwijderen
             if ($teacher->picture != '' && file_exists(storage_path($teacher->picture))) {
                 unlink(storage_path($teacher->picture));
             }
-            // opslaan ergens
-            $path = $request->file('picture')->store('images/Teacher');
-            // als je 'm opgeslagen hebt, toevoegen aan project
+
+            $path = $request->file('picture')->store('images/Teacher', 'public');
+
             $teacher->picture = $path;
         }
 

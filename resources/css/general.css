@@ -8,12 +8,13 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-    background: rgb(71 85 105)
+    background: rgb(71 85 105);
 }
 
 *::-webkit-scrollbar-thumb {
     background-color: rgb(30 41 59);
 }
+
 
 /* Side-Nav */
     .sidenav {
@@ -91,4 +92,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.leaflet-marker-icon-custom img {
+    border-radius: 50%;
+
+    width: 50px !important;
+    height: 50px !important;
 }
