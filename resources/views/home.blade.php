@@ -42,20 +42,15 @@
 
                         <div class="h-full pl-2 text-white ">
                                 <h1 class="text-lg">{{ $teacher->fullname   }}</h1>
-                                <h1 class="text-sm pr-1">Laatst gezien: <br>{{ $teacher->lastlocation->created_at   }}</h1>
+                                <h1 class="text-sm pr-1">Laatst gezien: <br>
+                                    {{ $teacher->lastlocation->created_at ?? 'nog niet gelocaliseerd'}}
+                                </h1>
                         </div>
                     </div>
                 @endforeach
 
-                   
+
                             </div>
-
-
-
-            {{--  Logout  --}}
-            <form class="flex justify-center mt-5" method="POST" action="{{ route('logout') }}">
-                @csrf
-
 
                 {{--  Logout  --}}
                 <form class="flex justify-center mt-5" method="POST" action="{{ route('logout') }}">

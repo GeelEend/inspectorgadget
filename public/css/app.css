@@ -607,20 +607,17 @@ select {
 .top-0 {
   top: 0px;
 }
-.right-0 {
-  right: 0px;
-}
 .left-0 {
   left: 0px;
+}
+.right-0 {
+  right: 0px;
 }
 .z-0 {
   z-index: 0;
 }
 .z-50 {
   z-index: 50;
-}
-.m-0 {
-  margin: 0px;
 }
 .mx-auto {
   margin-left: auto;
@@ -654,6 +651,9 @@ select {
 .mt-3 {
   margin-top: 0.75rem;
 }
+.mt-2 {
+  margin-top: 0.5rem;
+}
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -665,9 +665,6 @@ select {
 }
 .ml-1 {
   margin-left: 0.25rem;
-}
-.mt-2 {
-  margin-top: 0.5rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -708,6 +705,9 @@ select {
 .h-\[100vh\] {
   height: 100vh;
 }
+.h-6 {
+  height: 1.5rem;
+}
 .h-full {
   height: 100%;
 }
@@ -729,9 +729,6 @@ select {
 .h-4 {
   height: 1rem;
 }
-.h-6 {
-  height: 1.5rem;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -747,14 +744,20 @@ select {
 .w-\[100vh\] {
   width: 100vh;
 }
-.w-\[25\%\] {
-  width: 25%;
+.w-6 {
+  width: 1.5rem;
+}
+.w-\[0px\] {
+  width: 0px;
 }
 .w-\[60px\] {
   width: 60px;
 }
 .w-\[80\%\] {
   width: 80%;
+}
+.w-\[250px\] {
+  width: 250px;
 }
 .w-8 {
   width: 2rem;
@@ -765,20 +768,8 @@ select {
 .w-4 {
   width: 1rem;
 }
-.w-6 {
-  width: 1.5rem;
-}
 .w-48 {
   width: 12rem;
-}
-.w-\[0px\] {
-  width: 0px;
-}
-.w-\[250px\] {
-  width: 250px;
-}
-.min-w-\[60px\] {
-  min-width: 60px;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -865,12 +856,6 @@ select {
 }
 .overflow-hidden {
   overflow: hidden;
-}
-.overflow-y-auto {
-  overflow-y: auto;
-}
-.overflow-x-hidden {
-  overflow-x: hidden;
 }
 .overflow-y-hidden {
   overflow-y: hidden;
@@ -1020,6 +1005,9 @@ select {
 .pt-6 {
   padding-top: 1.5rem;
 }
+.pt-\[35px\] {
+  padding-top: 35px;
+}
 .pl-2 {
   padding-left: 0.5rem;
 }
@@ -1049,9 +1037,6 @@ select {
 }
 .pt-1 {
   padding-top: 0.25rem;
-}
-.pt-\[35px\] {
-  padding-top: 35px;
 }
 .text-left {
   text-align: left;
@@ -2055,6 +2040,11 @@ input:checked + .slider:before {
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   }
 
+  .dark\:text-gray-400 {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
   .dark\:text-gray-500 {
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -2063,11 +2053,6 @@ input:checked + .slider:before {
   .dark\:text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-gray-400 {
-    --tw-text-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-text-opacity));
   }
 
   .dark\:hover\:bg-gray-700:hover {
