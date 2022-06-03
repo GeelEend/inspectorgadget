@@ -24,6 +24,7 @@ Route::post('/admin/teachers/edit/{teacher}', ['App\Http\controllers\AdminTeache
 Route::get('/admin/teachers', ['App\Http\Controllers\AdminTeachersController', 'index'])->middleware(['auth'])->name('admin.teachers.list');
 Route::delete('/admin/teachers/destroy/{teacher}', ['App\Http\Controllers\AdminTeachersController', 'destroy'])->middleware('auth')->name('admin.teachers.destroy');
 
+Route::get('/courts/show/map', 'App\Http\Controllers\courtController@showmap')->name('courts.showmap');
 
 
 Route::get('/dashboard', function () {
@@ -32,7 +33,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/home', function () {
-    return view('home');
-});
+//Route::get('/home', function () { return view('home');});
+Route::get('/home', ['App\Http\Controllers\LocationsController', 'index'])->middleware(['auth'])->name('home');
+Route::post('/home', ['App\Http\Controllers\LocationsController', 'store'])->middleware(['auth']);
 
+Route::get('/ajax/getlocations', ['App\Http\Controllers\LocationsController', 'getLocations'])->middleware(['auth']);
+
+Route::post('/locations/store', ['App\Http\Controllers\LocationsController', 'store'])->middleware(['auth'])->name('locations.store');

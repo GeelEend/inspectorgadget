@@ -17,8 +17,23 @@
                             <img src="{{ '/storage/' . ($teachers->picture) }}" style="width:200px;"/>
                         </div>
                         <input class="" type="file" accept="image/*" name="picture" placeholder="foto" value="{{ $teachers->picture ?? ''}}">
-                        <input class="" type="text" name="border" placeholder="kleur" value="{{ $teachers->border ?? ''}}">
-
+{{--                        <input class="" type="text" name="border" placeholder="kleur" value="{{ $teachers->border ?? ''}}"> --}}
+                        <select id="colors" name="border">
+                            <option value="darkred">donkerrood</option>
+                            <option value="red">rood</option>
+                            <option value="orange">oranje</option>
+                            <option value="yellow">geel</option>
+                            <option value="lightgreen">lichtgroen</option>
+                            <option value="green">groen</option>
+                            <option value="darkgreen">donkergroen</option>
+                            <option value="lightblue">lichtblauw</option>
+                            <option value="cyan">lichtblauw</option>
+                            <option value="blue">blauw</option>
+                            <option value="darkblue">donkerblauw</option>
+                            <option value="purple">paars</option>
+                            <option value="violet">violet</option>
+                            <option value="pink">roze</option>
+                        </select>
 
                         <button type="submit">opslaan</button>
 

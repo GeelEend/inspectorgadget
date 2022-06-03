@@ -1,5 +1,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import '../../node_modules/leaflet/dist/leaflet.css';
+/*@import 'leaflet-temp.css';*/
+
+
 
 @import 'general.css';

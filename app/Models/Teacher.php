@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Teacher extends Model
 {
     use HasFactory;
+
+    public function locations() {
+        return $this->hasMany(Location::class);
+    }
+
+    public function lastlocation() {
+        return $this->hasOne(Location::class)->latest();
+    }
 }
