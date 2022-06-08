@@ -5074,6 +5074,13 @@ if (document.getElementById('mapid')) {
     });
   });
   map.on('click', onMapClick); // map.dragging.disable();
+}
+
+function removeClickFromClasslist() {
+  var teachers = document.querySelectorAll('.click-teacher');
+  teachers.forEach(function (teacher) {
+    teacher.classList.remove('click');
+  });
 } // klik op teacher
 
 
@@ -5081,6 +5088,8 @@ var teachers = document.querySelectorAll('.click-teacher');
 teachers.forEach(function (teacher) {
   teacher.addEventListener('click', function () {
     clickteacher = teacher.dataset.id;
+    removeClickFromClasslist();
+    teacher.classList.add('click');
   });
 });
 

@@ -90,10 +90,21 @@ if (document.getElementById('mapid')) {
     // map.dragging.disable();
 }
 
+function removeClickFromClasslist() {
+    let teachers = document.querySelectorAll('.click-teacher');
+    teachers.forEach(function (teacher) {
+        teacher.classList.remove('click');
+    });
+}
+
 // klik op teacher
 let teachers = document.querySelectorAll('.click-teacher');
 teachers.forEach(function(teacher) {
+
+
     teacher.addEventListener('click', function() {
         clickteacher = teacher.dataset.id;
+        removeClickFromClasslist();
+        teacher.classList.add('click');
     });
 });
