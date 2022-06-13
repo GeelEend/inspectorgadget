@@ -5004,8 +5004,7 @@ if (document.getElementById('mapid')) {
       }).then(function (response) {
         return response.json();
       }).then(function (newteacher) {
-        console.log(newteacher); // .leaflet-marker-icon-custom img -> data-id=1 moet verwijderd worden
-
+        // .leaflet-marker-icon-custom img -> data-id=1 moet verwijderd worden
         var currentTeachers = document.querySelectorAll('.leaflet-marker-icon-custom img');
         currentTeachers.forEach(function (teacher) {
           if (teacher.dataset.teacher == newteacher.id) {
@@ -5020,7 +5019,10 @@ if (document.getElementById('mapid')) {
         });
         leaflet__WEBPACK_IMPORTED_MODULE_1___default().marker([e.latlng.lat, e.latlng.lng], {
           icon: picture
-        }).addTo(map);
+        }).addTo(map); // voeg nieuwe tijd toe bij teacher met id van clickteacher
+
+        var d = new Date(newteacher.lastlocation.created_at);
+        document.querySelector('#teacher-' + clickteacher + ' .created_at').innerHTML = 'Laatst gezien: <br> ' + d.getHours() + ":" + d.getMinutes();
       });
     } else {
       alert('je bent vergeten een docent te selecteren');
@@ -5058,8 +5060,7 @@ if (document.getElementById('mapid')) {
       };
     }).then(function (teachersWithLocations) {
       teachersWithLocations.data.forEach(function (row) {
-        if (new Date() - new Date(row.lastlocation.created_at) > ONE_HOUR) {
-          alert('docent ' + row.fullname + ' niet gezien');
+        if (new Date() - new Date(row.lastlocation.created_at) > ONE_HOUR) {// alert('docent ' + row.fullname + ' niet gezien');
         } else {
           var picture = leaflet__WEBPACK_IMPORTED_MODULE_1___default().divIcon({
             className: 'leaflet-marker-icon-custom',

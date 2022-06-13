@@ -610,6 +610,9 @@ select {
 .left-0 {
   left: 0px;
 }
+.bottom-0 {
+  bottom: 0px;
+}
 .right-0 {
   right: 0px;
 }
@@ -708,17 +711,20 @@ select {
 .h-full {
   height: 100%;
 }
-.h-\[60\%\] {
-  height: 60%;
+.h-\[46\%\] {
+  height: 46%;
 }
-.h-\[200px\] {
-  height: 200px;
+.h-\[170px\] {
+  height: 170px;
 }
 .h-\[60px\] {
   height: 60px;
 }
-.h-\[70\%\] {
-  height: 70%;
+.h-\[56\%\] {
+  height: 56%;
+}
+.h-\[90\%\] {
+  height: 90%;
 }
 .h-8 {
   height: 2rem;
@@ -734,6 +740,18 @@ select {
 }
 .h-6 {
   height: 1.5rem;
+}
+.h-\[200px\] {
+  height: 200px;
+}
+.h-\[48\%\] {
+  height: 48%;
+}
+.h-\[49\%\] {
+  height: 49%;
+}
+.h-\[51\%\] {
+  height: 51%;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -768,8 +786,8 @@ select {
 .w-48 {
   width: 12rem;
 }
-.min-w-\[190px\] {
-  min-width: 190px;
+.min-w-\[170px\] {
+  min-width: 170px;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -1008,8 +1026,8 @@ select {
 .pt-6 {
   padding-top: 1.5rem;
 }
-.pt-\[35px\] {
-  padding-top: 35px;
+.pt-\[12px\] {
+  padding-top: 12px;
 }
 .pl-2 {
   padding-left: 0.5rem;
@@ -2169,6 +2187,10 @@ input:checked + .slider:before {
     height: auto;
   }
 
+  .md\:h-\[70\%\] {
+    height: 70%;
+  }
+
   .md\:w-full {
     width: 100%;
   }
@@ -2203,6 +2225,10 @@ input:checked + .slider:before {
 
   .md\:border-l {
     border-left-width: 1px;
+  }
+
+  .md\:pt-\[35px\] {
+    padding-top: 35px;
   }
 }
 @media (min-width: 1024px) {

@@ -43,7 +43,7 @@ if (document.getElementById('mapid')) {
         .then(teachersWithLocations => {
             teachersWithLocations.data.forEach(function (row) {
                 if ((new Date - new Date(row.lastlocation.created_at)) > ONE_HOUR) {
-                    alert('docent ' + row.fullname + ' niet gezien');
+                    // alert('docent ' + row.fullname + ' niet gezien');
                 } else {
                     var picture = L.divIcon({className: 'leaflet-marker-icon-custom', html: '<img data-teacher="' + row.id + '" src="/storage/' + row.picture + '" style="border: 2px solid ' + row.border  + '" />', iconSize: [55, 55]});
                     L.marker([row.lastlocation.x, row.lastlocation.y], {icon: picture}).addTo(map);
@@ -70,7 +70,7 @@ if (document.getElementById('mapid')) {
             })
                 .then(response => response.json())
                 .then(newteacher => {
-                    console.log(newteacher);
+
                     // .leaflet-marker-icon-custom img -> data-id=1 moet verwijderd worden
                     let currentTeachers = document.querySelectorAll('.leaflet-marker-icon-custom img');
                     currentTeachers.forEach(function(teacher) {
@@ -81,6 +81,10 @@ if (document.getElementById('mapid')) {
                     // voeg nieuwe marker toe met huidige locatie
                     var picture = L.divIcon({className: 'leaflet-marker-icon-custom', html: '<img data-teacher="' + newteacher.id + '" src="/storage/' + newteacher.picture + '" />', iconSize: [55, 55]});
                     L.marker([e.latlng.lat, e.latlng.lng], {icon: picture}).addTo(map);
+
+                    // voeg nieuwe tijd toe bij teacher met id van clickteacher
+                    var d = new Date(newteacher.lastlocation.created_at);
+                    document.querySelector('#teacher-' + clickteacher + ' .created_at').innerHTML = 'Laatst gezien: <br> ' + d.getHours() + ":" + d.getMinutes();
                 });
         } else {
             alert('je bent vergeten een docent te selecteren');
