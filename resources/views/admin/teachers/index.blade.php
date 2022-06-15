@@ -19,7 +19,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
                         @foreach($teachers as $teacher)
                             <tr>
                                 <td>{{ $teacher->id }}</td>
@@ -39,6 +38,7 @@
                                 </td>
                             </tr>
                         </tbody>
+
 
                         @endforeach
                     </table>
