@@ -36,21 +36,36 @@
 
                 {{--  Docenten  --}}
                 @foreach ($teachers AS $teacher)
+
                     <div class="click-teacher cursor-pointer flex items-center mx-2 mt-5 py-3 px-3 block mx-auto rounded-md bg-slate-800 leading-3" data-id="{{ $teacher->id }}">
 
                         <img src="{{ '/storage/' . $teacher->picture   }}" class="w-[60px] h-[60px] rounded-full bg-gray-100"/>
 
-                        <div class="h-full pl-2 text-white ">
-                                <h1 class="text-lg">{{ $teacher->fullname   }}</h1>
-                                <h1 class="text-sm pr-1">Laatst gezien: <br>
-                                    {{ $teacher->lastlocation->created_at ?? 'nog niet gelocaliseerd'}}
-                                </h1>
+                        <div class="h-full pl-2 text-white">
+                            <h1 class="text-lg">{{ $teacher->fullname   }}</h1>
+                            <h1 class="text-sm pr-1">Laatst gezien: <br>
+                                {{ $teacher->lastlocation->created_at ?? 'nog niet gelocaliseerd'}}
+                            </h1>
                         </div>
                     </div>
+
                 @endforeach
 
+                    </div>
 
-                            </div>
+                    
+                    @if (auth()->user()->isAdmin())
+                        <form class="flex justify-center mt-5" action="{{ route('dashboard') }}">
+                            @csrf
+
+                            <button :href="route('logout')" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+
+                                {{ __('Admin Dashboard') }}
+                            </button>
+
+                        </form>
+                    @endif
+
 
                 {{--  Logout  --}}
                 <form class="flex justify-center mt-5" method="POST" action="{{ route('logout') }}">

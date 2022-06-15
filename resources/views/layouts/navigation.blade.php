@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('admin.users.list')" :active="request()->routeIs('users')">
                         studenten
                     </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        Home
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -71,6 +74,15 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.teachers.list')" :active="request()->routeIs('teachers')">
+                docenten
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.users.list')" :active="request()->routeIs('users')">
+                studenten
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                Home
             </x-responsive-nav-link>
         </div>
 

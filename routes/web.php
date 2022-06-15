@@ -7,15 +7,11 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can register web routes for your application. These`
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 Route::get('/admin/teachers/create', ['App\Http\Controllers\AdminTeachersController', 'create'])->middleware(['auth', 'banned_at'])->name('admin.teachers.create');
@@ -54,9 +50,16 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 //Route::get('/home', function () { return view('home');});
-Route::get('/home', ['App\Http\Controllers\LocationsController', 'index'])->middleware(['auth'])->name('home');
-Route::post('/home', ['App\Http\Controllers\LocationsController', 'store'])->middleware(['auth']);
+Route::get('/', ['App\Http\Controllers\LocationsController', 'index'])->middleware(['auth'])->name('home');
+Route::post('/', ['App\Http\Controllers\LocationsController', 'store'])->middleware(['auth']);
 
 Route::get('/ajax/getlocations', ['App\Http\Controllers\LocationsController', 'getLocations'])->middleware(['auth']);
 
 Route::post('/locations/store', ['App\Http\Controllers\LocationsController', 'store'])->middleware(['auth'])->name('locations.store');
+
+// Landstede inloggen
+Route::get('/inloggen/azure', function () {
+    return Socialite::driver('azure')->redirect();
+});
+
+Route::get('/inloggen/azure/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);

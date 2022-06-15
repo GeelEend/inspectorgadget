@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin() {
+        if (strpos($this->email, '@landstede.nl') || $this->email === 'nlaan0403@student.landstede.nl') {
+            return true;
+        }
+        return false;
+    }
 }
