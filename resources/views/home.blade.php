@@ -40,7 +40,7 @@
                     <div id="teacher-{{ $teacher->id }}"
                         class="click-teacher cursor-pointer flex items-center md:flex-row flex-col md:w-auto min-w-[170px] md:h-auto h-[200px] mx-2 mt-5 py-3 px-3 block mx-auto rounded-md bg-slate-800 leading-3 "
                         data-id="{{ $teacher->id }}">
-                        
+
                         <img src="{{ '/storage/' . $teacher->picture   }}"
                              class="min-h-[60px] w-[60px] min-h-[60px] h-[60px] rounded-full bg-gray-100"/>
 
