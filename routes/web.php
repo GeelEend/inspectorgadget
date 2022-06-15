@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,7 @@ Route::post('/', ['App\Http\Controllers\LocationsController', 'store'])->middlew
 Route::get('/ajax/getlocations', ['App\Http\Controllers\LocationsController', 'getLocations'])->middleware(['auth']);
 
 Route::post('/locations/store', ['App\Http\Controllers\LocationsController', 'store'])->middleware(['auth'])->name('locations.store');
+
 
 // Landstede inloggen
 Route::get('/inloggen/azure', function () {

@@ -51,8 +51,19 @@ class AdminTeachersController extends Controller
     public function store(Request $request) {
         $teacher = new Teacher();
         $teacher->fullname = $request->input('fullname');
-        $teacher->picture = $request->input('picture') ?? '';
+
         $teacher->border = $request->input('border');
+
+        if ($request->hasFile('picture')) {
+            if ($teacher->picture != '' && file_exists(storage_path($teacher->picture))) {
+                unlink(storage_path($teacher->picture));
+            }
+
+            $path = $request->file('picture')->store('images/Teacher', 'public');
+
+            $teacher->picture = $path;
+        }
+
         $teacher->save();
         return redirect()->route('admin.teachers.list');
     }
