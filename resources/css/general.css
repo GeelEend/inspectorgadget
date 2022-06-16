@@ -2,10 +2,6 @@ body {
     font-family: Poppinns, Helvetica, Arial sans-serif;
 }
 
-.bg-dark {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
 /* Scrollbar */
 
 .sidenav::-webkit-scrollbar {
@@ -20,23 +16,7 @@ body {
     background-color: rgb(30 41 59);
 }
 
-
-/* Side-Nav */
-    .sidenav {
-        transition: 0.5s;
-    }
-
-    .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-        color: white;
-    }
-
-
-
+/* navbar */
 .switch {
     position: relative;
     display: inline-block;

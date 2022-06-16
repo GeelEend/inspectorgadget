@@ -17,7 +17,7 @@
     <div class="flex md:flex-row flex-col-reverse h-full w-full">
 
         {{-- Sidenav --}}
-        <div class="sidenav bg-gray-600 flex flex-col md:w-full lg:w-[300px] md:h-full h-[65%] lg:block top-0 left-0 overflow-y-hidden lg:overflow-x-auto md:pt-[35px] pt-[12px]">
+        <div class="sidenav bg-gray-600 flex flex-col md:w-full lg:w-[300px] md:h-full h-[65%] lg:block top-0 left-0  overflow-auto pt-[12px]">
 
             <div class="h-full flex flex-col justify-between">
 

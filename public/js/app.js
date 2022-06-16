@@ -4985,10 +4985,10 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 var clickteacher;
 
 if (document.getElementById('mapid')) {
-  // functionaliteit voor het klikken op de map
+  // Function click on map
   var onMapClick = function onMapClick(e) {
     if (clickteacher) {
-      // 2. toevoegen via je store
+      // 2. Add trough store
       fetch('/locations/store', {
         headers: {
           'Accept': 'application/json',
@@ -5004,13 +5004,13 @@ if (document.getElementById('mapid')) {
       }).then(function (response) {
         return response.json();
       }).then(function (newteacher) {
-        // .leaflet-marker-icon-custom img -> data-id=1 moet verwijderd worden
+        // remove last marker
         var currentTeachers = document.querySelectorAll('.leaflet-marker-icon-custom img');
         currentTeachers.forEach(function (teacher) {
           if (teacher.dataset.teacher == newteacher.id) {
             teacher.parentNode.remove();
           }
-        }); // voeg nieuwe marker toe met huidige locatie
+        }); // add new marker
 
         var picture = leaflet__WEBPACK_IMPORTED_MODULE_1___default().divIcon({
           className: 'leaflet-marker-icon-custom',
@@ -5019,7 +5019,7 @@ if (document.getElementById('mapid')) {
         });
         leaflet__WEBPACK_IMPORTED_MODULE_1___default().marker([e.latlng.lat, e.latlng.lng], {
           icon: picture
-        }).addTo(map); // voeg nieuwe tijd toe bij teacher met id van clickteacher
+        }).addTo(map); // add new date onclick teacher
 
         var d = new Date(newteacher.lastlocation.created_at);
         document.querySelector('#teacher-' + clickteacher + ' .created_at').innerHTML = 'Laatst gezien: <br> ' + d.getHours() + ":" + d.getMinutes();
@@ -5050,7 +5050,7 @@ if (document.getElementById('mapid')) {
     noWrap: true,
     bounds: mapBounds
   }).addTo(map);
-  map.setView(new (leaflet__WEBPACK_IMPORTED_MODULE_1___default().LatLng)(0, 165), 0); // haal huidige locaties op
+  map.setView(new (leaflet__WEBPACK_IMPORTED_MODULE_1___default().LatLng)(0, 165), 0); // Get current locations
 
   fetch('/ajax/getlocations').then(function (response) {
     return response.json().then(function (data) {
@@ -5060,7 +5060,8 @@ if (document.getElementById('mapid')) {
       };
     }).then(function (teachersWithLocations) {
       teachersWithLocations.data.forEach(function (row) {
-        if (new Date() - new Date(row.lastlocation.created_at) > ONE_HOUR) {// alert('docent ' + row.fullname + ' niet gezien');
+        if (new Date() - new Date(row.lastlocation.created_at) > ONE_HOUR) {
+          alert('docent ' + row.fullname + ' niet gezien');
         } else {
           var picture = leaflet__WEBPACK_IMPORTED_MODULE_1___default().divIcon({
             className: 'leaflet-marker-icon-custom',
@@ -5074,7 +5075,7 @@ if (document.getElementById('mapid')) {
       });
     });
   });
-  map.on('click', onMapClick); // map.dragging.disable();
+  map.on('click', onMapClick);
 }
 
 function removeClickFromClasslist() {
@@ -5082,7 +5083,7 @@ function removeClickFromClasslist() {
   teachers.forEach(function (teacher) {
     teacher.classList.remove('click');
   });
-} // klik op teacher
+} // click on teacher
 
 
 var teachers = document.querySelectorAll('.click-teacher');

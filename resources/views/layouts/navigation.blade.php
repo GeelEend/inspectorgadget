@@ -16,10 +16,10 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.teachers.list')" :active="request()->routeIs('teachers')">
-                        docenten
+                        Docenten
                     </x-nav-link>
                     <x-nav-link :href="route('admin.users.list')" :active="request()->routeIs('users')">
-                        studenten
+                        Studenten
                     </x-nav-link>
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         Home
@@ -76,10 +76,10 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.teachers.list')" :active="request()->routeIs('teachers')">
-                docenten
+                Docenten
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.users.list')" :active="request()->routeIs('users')">
-                studenten
+                Studenten
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 Home

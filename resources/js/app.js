@@ -32,7 +32,7 @@ if (document.getElementById('mapid')) {
     }).addTo(map);
     map.setView(new L.LatLng(0, 165), 0);
 
-    // haal huidige locaties op
+    // Get current locations
     fetch('/ajax/getlocations')
         .then(response =>
             response.json().then(data => ({
@@ -43,7 +43,7 @@ if (document.getElementById('mapid')) {
         .then(teachersWithLocations => {
             teachersWithLocations.data.forEach(function (row) {
                 if ((new Date - new Date(row.lastlocation.created_at)) > ONE_HOUR) {
-                    // alert('docent ' + row.fullname + ' niet gezien');
+                    alert('docent ' + row.fullname + ' niet gezien');
                 } else {
                     var picture = L.divIcon({className: 'leaflet-marker-icon-custom', html: '<img data-teacher="' + row.id + '" src="/storage/' + row.picture + '" style="border: 2px solid ' + row.border  + '" />', iconSize: [55, 55]});
                     L.marker([row.lastlocation.x, row.lastlocation.y], {icon: picture}).addTo(map);
@@ -51,10 +51,10 @@ if (document.getElementById('mapid')) {
             });
         }));
 
-    // functionaliteit voor het klikken op de map
+    // Function click on map
     function onMapClick(e) {
         if (clickteacher) {
-            // 2. toevoegen via je store
+            // 2. Add trough store
             fetch('/locations/store', {
                 headers: {
                     'Accept': 'application/json',
@@ -71,18 +71,18 @@ if (document.getElementById('mapid')) {
                 .then(response => response.json())
                 .then(newteacher => {
 
-                    // .leaflet-marker-icon-custom img -> data-id=1 moet verwijderd worden
+                    // remove last marker
                     let currentTeachers = document.querySelectorAll('.leaflet-marker-icon-custom img');
                     currentTeachers.forEach(function(teacher) {
                        if (teacher.dataset.teacher == newteacher.id) {
                            teacher.parentNode.remove();
                        }
                     });
-                    // voeg nieuwe marker toe met huidige locatie
+                    // add new marker
                     var picture = L.divIcon({className: 'leaflet-marker-icon-custom', html: '<img data-teacher="' + newteacher.id + '" src="/storage/' + newteacher.picture + '" />', iconSize: [55, 55]});
                     L.marker([e.latlng.lat, e.latlng.lng], {icon: picture}).addTo(map);
 
-                    // voeg nieuwe tijd toe bij teacher met id van clickteacher
+                    // add new date onclick teacher
                     var d = new Date(newteacher.lastlocation.created_at);
                     document.querySelector('#teacher-' + clickteacher + ' .created_at').innerHTML = 'Laatst gezien: <br> ' + d.getHours() + ":" + d.getMinutes();
                 });
@@ -91,7 +91,6 @@ if (document.getElementById('mapid')) {
         }
     }
     map.on('click', onMapClick);
-    // map.dragging.disable();
 }
 
 function removeClickFromClasslist() {
@@ -101,7 +100,7 @@ function removeClickFromClasslist() {
     });
 }
 
-// klik op teacher
+// click on teacher
 let teachers = document.querySelectorAll('.click-teacher');
 teachers.forEach(function(teacher) {
 

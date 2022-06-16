@@ -613,9 +613,6 @@ select {
 .right-0 {
   right: 0px;
 }
-.bottom-0 {
-  bottom: 0px;
-}
 .z-0 {
   z-index: 0;
 }
@@ -635,6 +632,9 @@ select {
 }
 .-ml-px {
   margin-left: -1px;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 .mb-4 {
   margin-bottom: 1rem;
@@ -657,6 +657,9 @@ select {
 .ml-2 {
   margin-left: 0.5rem;
 }
+.mr-3 {
+  margin-right: 0.75rem;
+}
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -677,9 +680,6 @@ select {
 }
 .-mr-2 {
   margin-right: -0.5rem;
-}
-.mt-6 {
-  margin-top: 1.5rem;
 }
 .block {
   display: block;
@@ -711,8 +711,8 @@ select {
 .h-full {
   height: 100%;
 }
-.h-\[51\%\] {
-  height: 51%;
+.h-\[65\%\] {
+  height: 65%;
 }
 .h-\[200px\] {
   height: 200px;
@@ -737,12 +737,6 @@ select {
 }
 .h-6 {
   height: 1.5rem;
-}
-.h-\[65\%\] {
-  height: 65%;
-}
-.h-\[56\%\] {
-  height: 56%;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -780,8 +774,20 @@ select {
 .min-w-\[170px\] {
   min-width: 170px;
 }
+.min-w-\[130px\] {
+  min-width: 130px;
+}
 .max-w-7xl {
   max-width: 80rem;
+}
+.max-w-\[500px\] {
+  max-width: 500px;
+}
+.max-w-\[200px\] {
+  max-width: 200px;
+}
+.max-w-\[220px\] {
+  max-width: 220px;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -875,8 +881,10 @@ select {
 .overflow-hidden {
   overflow: hidden;
 }
-.overflow-y-hidden {
-  overflow-y: hidden;
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .rounded-md {
   border-radius: 0.375rem;
@@ -886,9 +894,6 @@ select {
 }
 .rounded-lg {
   border-radius: 0.5rem;
-}
-.rounded {
-  border-radius: 0.25rem;
 }
 .rounded-l-md {
   border-top-left-radius: 0.375rem;
@@ -1010,6 +1015,10 @@ select {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -1026,12 +1035,11 @@ select {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
 .pt-6 {
   padding-top: 1.5rem;
+}
+.pr-3 {
+  padding-right: 0.75rem;
 }
 .pt-\[12px\] {
   padding-top: 12px;
@@ -1138,6 +1146,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
@@ -1145,10 +1157,6 @@ select {
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
-}
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .text-green-600 {
   --tw-text-opacity: 1;
@@ -1169,10 +1177,6 @@ select {
 .text-indigo-700 {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
-}
-.text-indigo-600 {
-  --tw-text-opacity: 1;
-  color: rgb(79 70 229 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -1843,9 +1847,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 body {
     font-family: Poppinns, Helvetica, Arial sans-serif;
 }
-.bg-dark {
-    background-color: rgba(255, 255, 255, 0.3);
-}
 /* Scrollbar */
 .sidenav::-webkit-scrollbar {
     width: 12px;
@@ -1856,18 +1857,7 @@ body {
 .sidenav::-webkit-scrollbar-thumb {
     background-color: rgb(30 41 59);
 }
-/* Side-Nav */
-.sidenav {
-        transition: 0.5s;
-    }
-.closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-        color: white;
-    }
+/* navbar */
 .switch {
     position: relative;
     display: inline-block;
@@ -2152,10 +2142,6 @@ input:checked + .slider:before {
     text-align: left;
   }
 
-  .sm\:text-center {
-    text-align: center;
-  }
-
   .sm\:text-right {
     text-align: right;
   }
@@ -2226,10 +2212,6 @@ input:checked + .slider:before {
     padding-left: 0px;
     padding-right: 0px;
   }
-
-  .md\:pt-\[35px\] {
-    padding-top: 35px;
-  }
 }
 @media (min-width: 1024px) {
 
@@ -2239,10 +2221,6 @@ input:checked + .slider:before {
 
   .lg\:w-\[300px\] {
     width: 300px;
-  }
-
-  .lg\:overflow-x-auto {
-    overflow-x: auto;
   }
 
   .lg\:px-8 {

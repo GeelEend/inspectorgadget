@@ -12,11 +12,11 @@
                     <table class="w-full">
                         <thead>
                         <tr>
-                            <th class="text-left">ID</th>
+                            <th class="text-left pr-3">ID</th>
                             <th class="text-left">Naam</th>
                             <th class="text-left">Email</th>
                             <th class="text-left">Verbannen?</th>
-                            <th class="text-left">Verbannen Op</th>
+                            <th class="text-left min-w-[130px]">Verbannen Op</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -24,8 +24,8 @@
                         @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
+                                <td class="min-w-[170px]">{{ $user->name }}</td>
+                                <td class="pr-3">{{ $user->email }}</td>
                                 <td>
                                     <form class="flex" action="{{ route('user.update', ['user' => $user]) }}" method="post" enctype="multipart/form-data">
                                         @csrf
@@ -38,7 +38,7 @@
                                             </span>
                                         </label>
 
-                                        <button class="text-center ml-2" type="submit">opslaan</button>
+                                        <button class="text-center ml-2 mr-3 inline-flex items-center px-2 py-1 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3" type="submit">opslaan</button>
 
                                     </form>
                                 </td>
